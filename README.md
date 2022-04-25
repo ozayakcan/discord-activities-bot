@@ -11,5 +11,11 @@ Enable your bot's PRESENCE INTENT, SERVER MEMBERS INTENT and MESSAGE CONTENT INT
 Authorize URL (Replace BOT_CLIENT_ID with your bot's client id)
 https://discord.com/oauth2/authorize?client_id=BOT_CLIENT_ID&permissions=1&scope=bot%20applications.commands
 
-run first:  npm run deploy-commands
-then:  npm run main
+run this only once
+```
+npm run deploy-commands
+```
+then to start bot
+```
+npm run main
+```
