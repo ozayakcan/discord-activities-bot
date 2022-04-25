@@ -1,0 +1,24 @@
+{
+  "name": "discord-activities-bot",
+  "version": "0.0.1",
+  "description": "Activities for discord.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozayakcan/discord-activities-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "events",
+    "bot"
+  ],
+  "author": "Özay Akcan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozayakcan/discord-activities-bot/issues"
+  },
+  "homepage": "https://github.com/ozayakcan/discord-activities-bot#readme"
+}
