@@ -18,9 +18,15 @@ function activityCommand(lang) {
 					value: lang.watchTogetherName
 				}));
 }
+function helpCommand(lang) {
+	return new SlashCommandBuilder()
+		.setName(globalStrs.helpCommand)
+		.setDescription(lang.helpDesc);
+}
 function guildCommands(lang) {
 	return [
-		activityCommand(lang)
+		activityCommand(lang),
+		helpCommand(lang)
 	].map(command => command.toJSON());
 }
 const langCommand = new SlashCommandBuilder()

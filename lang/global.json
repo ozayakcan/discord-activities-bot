@@ -4,5 +4,6 @@
     "appCommandsUpdatedSuccess": "Application commands updated successfully.",
     "guildCommandsUpdatedSuccess": "Guild commands updated successfully.",
     "readyMsg": "Logged as {botTag}!",
-    "readyMsgServer": "Bot is ready!"
+    "readyMsgServer": "Bot is ready!",
+    "helpCommand": "help"
 }

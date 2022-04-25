@@ -15,6 +15,7 @@ const globalStrs = require("./lang/global.json");
 
 client.on('ready', () => {
     console.log(globalStrs.readyMsg.replace(`{botTag}`, `${client.user.tag}`));
+    client.user.setActivity("/help", { type: "WATCHING" });
 });
 client.on('guildCreate', async g => {
     let lang = langJs.getLanguage(g.id);
@@ -54,6 +55,8 @@ client.on('interactionCreate', async interaction => {
         //commandsJs.resetGuildCommands(guild.id);
         commandsJs.setGuildCommands(guild.id, lang);
         await interaction.reply(lang.langSuccess);
+    } else if (interaction.commandName === globalStrs.helpCommand) {
+        await interaction.reply(lang.helpResp);
     }
 });
 require('./server')();
