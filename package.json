@@ -4,6 +4,8 @@
   "description": "Activities for discord.",
   "main": "index.js",
   "scripts": {
+    "main": "node .",
+    "deploy-commands": "node deploy-commands.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +29,7 @@
     "discord-api-types": "^0.32.0",
     "discord-together": "^1.3.3",
     "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
   }
 }
