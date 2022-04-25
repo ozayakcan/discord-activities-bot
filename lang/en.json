@@ -5,10 +5,8 @@
     "typeDesc": "Set activity type",
     "watchTogetherName": "watch_together",
     "watchTogetherDesc": "Watch Together (Youtube)",
-    "commandsUpdatedSuccess": "Bot commands updated successfully.",
-    "readyMsg": "Logged as {botTag}!",
-    "readyMsgServer": "Bot is ready!",
     "youMustBeInVoiceChannel": "You must be in voice channel to use this command",
     "youtubeMsg": "{user} started an watch together event. [Click to join]({inviteCode})",
-    "typeNotSpecified": "You must specify a type!"
+    "typeNotSpecified": "You must specify a type!",
+    "langSuccess": "Language changed successfully!"
 }
