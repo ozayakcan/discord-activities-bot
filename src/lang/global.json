@@ -5,5 +5,8 @@
     "guildCommandsUpdatedSuccess": "Guild commands updated successfully.",
     "readyMsg": "Logged as {botTag}!",
     "readyMsgServer": "Bot is ready!",
-    "helpCommand": "help"
+    "helpCommand": "help",
+    "helpCommandDesc": "Commands help.",
+    "refreshCommand": "refresh",
+    "refreshCommandDesc": "Refresh bot."
 }

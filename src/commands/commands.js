@@ -18,21 +18,9 @@ function activityCommand(lang) {
 					value: lang.watchTogetherName
 				}));
 }
-function helpCommand(lang) {
-	return new SlashCommandBuilder()
-		.setName(globalStrs.helpCommand)
-		.setDescription(lang.helpDesc);
-}
-function refreshCommand(lang) {
-	return new SlashCommandBuilder()
-		.setName(lang.refreshCommand)
-		.setDescription(lang.refreshCommandDesc);
-}
 function guildCommands(lang) {
 	return [
-		activityCommand(lang),
-		helpCommand(lang),
-		refreshCommand(lang)
+		activityCommand(lang)
 	].map(command => command.toJSON());
 }
 const langCommand = new SlashCommandBuilder()
@@ -48,8 +36,16 @@ const langCommand = new SlashCommandBuilder()
 				name: "Türkçe",
 				value: "tr"
 			}));
+const helpCommand = new SlashCommandBuilder()
+	.setName(globalStrs.helpCommand)
+	.setDescription(globalStrs.helpCommandDesc);
+const refreshCommand = new SlashCommandBuilder()
+	.setName(globalStrs.refreshCommand)
+	.setDescription(globalStrs.refreshCommandDesc);
 const applicationCommands = [
-	langCommand
+	langCommand,
+	helpCommand,
+	refreshCommand
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.discordBotToken);

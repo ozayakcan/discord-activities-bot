@@ -10,8 +10,6 @@
     "typeNotSpecified": "Bir tür belirtmelisiniz!",
     "langSuccess": "Dil başarıyla değiştirildi!",
     "helpResp": "Komutu /etkinlik tür: Birlikte İzle (Youtube) şeklinde kullanın ve oluşturulan bağlantıya tıklayıp etkinliğe katılın.",
-    "helpDesc": "Komut yardımları.",
-    "refreshCommand": "yenile",
     "refreshCommandDesc": "Botu yenile.",
     "refreshSuccess": "Bot yenilendi.",
     "refreshFailed": "Bot yenilenemedi. Hata: {error}"
