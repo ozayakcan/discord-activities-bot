@@ -35,7 +35,10 @@ src/strings.json example
     "refreshFailed": "Bot could not refreshed. Error: {error}",
     "chessName": "Chess (Need Boost Level 1)",
     "chessValue": "chess",
-    "chessMsg": "{user} started a chess event. [Click to join]({inviteCode})"
+    "chessMsg": "{user} started a chess event. [Click to join]({inviteCode})",
+    "sketchheadsName": "Sketch Heads (Game)",
+    "sketchheadsValue": "sketchheads",
+    "sketchheadsMsg": "{user} started a sketch heads event. [Click to join]({inviteCode})"
 }
 ```
 

@@ -36,6 +36,11 @@ client.on('interactionCreate', async interaction => {
                         return await interaction.reply(strings.youtubeMsg.replace(`{user}`, `${interaction.member}`).replace(`{inviteCode}`, `${invite.code}`));
                     });
                     break;
+                case strings.sketchheadsValue:
+                    client.discordActivity.createActivityCode(channel.id, 'sketchheads').then(async invite => {
+                        return await interaction.reply(strings.sketchheadsMsg.replace(`{user}`, `${interaction.member}`).replace(`{inviteCode}`, `${invite.code}`));
+                    });
+                    break;
                 case strings.chessValue:
                     client.discordActivity.createActivityCode(channel.id, 'chess').then(async invite => {
                         return await interaction.reply(strings.chessMsg.replace(`{user}`, `${interaction.member}`).replace(`{inviteCode}`, `${invite.code}`));

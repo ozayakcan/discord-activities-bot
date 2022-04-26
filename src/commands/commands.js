@@ -19,6 +19,9 @@ const activityCommand = new SlashCommandBuilder()
 				name: strings.watchTogetherName,
 				value: strings.watchTogetherValue
 			}, {
+				name: strings.sketchheadsName,
+				value: strings.sketchheadsValue
+			}, {
 				name: strings.chessName,
 				value: strings.chessValue
 			}));
