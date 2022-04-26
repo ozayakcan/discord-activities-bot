@@ -23,10 +23,16 @@ function helpCommand(lang) {
 		.setName(globalStrs.helpCommand)
 		.setDescription(lang.helpDesc);
 }
+function refreshCommand(lang) {
+	return new SlashCommandBuilder()
+		.setName(lang.refreshCommand)
+		.setDescription(lang.refreshCommandDesc);
+}
 function guildCommands(lang) {
 	return [
 		activityCommand(lang),
-		helpCommand(lang)
+		helpCommand(lang),
+		refreshCommand(lang)
 	].map(command => command.toJSON());
 }
 const langCommand = new SlashCommandBuilder()
@@ -53,8 +59,11 @@ function setApplicationCommands() {
 		.then(() => console.log(globalStrs.appCommandsUpdatedSuccess))
 		.catch(console.error);
 }
+function guildCommandsRest(guild_id, lang) {
+	return rest.put(Routes.applicationGuildCommands(process.env.discordBotClientID, guild_id), { body: guildCommands(lang) });
+}
 function setGuildCommands(guild_id, lang) {
-	rest.put(Routes.applicationGuildCommands(process.env.discordBotClientID, guild_id), { body: guildCommands(lang) })
+	guildCommandsRest(guild_id, lang)
 		.then(() => console.log(globalStrs.guildCommandsUpdatedSuccess))
 		.catch(console.error);
 }
@@ -72,6 +81,7 @@ function resetGuildCommands(guild_id) {
 
 module.exports = {
 	setApplicationCommands: setApplicationCommands,
+	guildCommandsRest: guildCommandsRest,
 	setGuildCommands: setGuildCommands,
 	resetGuildCommands: resetGuildCommands,
 };

@@ -10,5 +10,9 @@
     "typeNotSpecified": "You must specify a type!",
     "langSuccess": "Language changed successfully!",
     "helpResp": "Usage Example: /activity type: Watch Together(Youtube) and click genareted link to join activity.",
-    "helpDesc": "Commands help."
+    "helpDesc": "Commands help.",
+    "refreshCommand": "refresh",
+    "refreshCommandDesc": "Refresh bot.",
+    "refreshSuccess": "Bot refreshed.",
+    "refreshFailed": "Bot could not refreshed. Error: {error}"
 }

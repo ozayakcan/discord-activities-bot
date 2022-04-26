@@ -57,6 +57,16 @@ client.on('interactionCreate', async interaction => {
         await interaction.reply(lang.langSuccess);
     } else if (interaction.commandName === globalStrs.helpCommand) {
         await interaction.reply(lang.helpResp);
+    } else if (interaction.commandName === lang.refreshCommand) {
+        commandsJs.guildCommandsRest(guild.id, lang).then(async () => {
+            await interaction.reply(lang.refreshSuccess);
+        })
+            .catch(async () => {
+                {
+                    await interaction.reply(lang.refreshSuccess);
+                }
+            });
+
     }
 });
 require('./src/server')();
