@@ -32,7 +32,10 @@ src/strings.json example
     "typeNotSpecified": "You must specify a type!",
     "helpResp": "Usage Example: /activity type: Watch Together(Youtube) and click genareted link to join activity.",
     "refreshSuccess": "Bot refreshed.",
-    "refreshFailed": "Bot could not refreshed. Error: {error}"
+    "refreshFailed": "Bot could not refreshed. Error: {error}",
+    "chessName": "Chess (Need Boost Level 1)",
+    "chessValue": "chess",
+    "chessMsg": "{user} started a chess event. [Click to join]({inviteCode})"
 }
 ```
 

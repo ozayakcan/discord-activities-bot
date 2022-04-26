@@ -18,6 +18,9 @@ const activityCommand = new SlashCommandBuilder()
 			.setRequired(true).addChoices({
 				name: strings.watchTogetherName,
 				value: strings.watchTogetherValue
+			}, {
+				name: strings.chessName,
+				value: strings.chessValue
 			}));
 const helpCommand = new SlashCommandBuilder()
 	.setName(strings.helpCommand)
