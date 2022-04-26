@@ -15,7 +15,7 @@ const globalStrs = require("./src/lang/global.json");
 
 client.on('ready', () => {
     console.log(globalStrs.readyMsg.replace(`{botTag}`, `${client.user.tag}`));
-    client.user.setActivity("/help", { type: "WATCHING" });
+    client.user.setActivity("/" + globalStrs.helpCommand, { type: "WATCHING" });
 });
 client.on('guildCreate', async g => {
     let lang = langJs.getLanguage(g.id);
