@@ -8,5 +8,6 @@
     "helpCommand": "help",
     "helpCommandDesc": "Commands help.",
     "refreshCommand": "refresh",
-    "refreshCommandDesc": "Refresh bot."
+    "refreshCommandDesc": "Refresh bot.",
+    "watchTogetherValue": "watch_together"
 }

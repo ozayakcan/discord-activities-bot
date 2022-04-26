@@ -34,7 +34,7 @@ client.on('interactionCreate', async interaction => {
         } else {
             const string = interaction.options.getString(lang.type);
             switch (string) {
-                case lang.watchTogetherName:
+                case globalStrs.watchTogetherValue:
                     client.discordActivity.createActivityCode(channel.id, 'youtube').then(async invite => {
                         return await interaction.reply(lang.youtubeMsg.replace(`{user}`, `${interaction.member}`).replace(`{inviteCode}`, `${invite.code}`));
                     });

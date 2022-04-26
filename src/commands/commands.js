@@ -14,8 +14,8 @@ function activityCommand(lang) {
 			option.setName(lang.type)
 				.setDescription(lang.typeDesc)
 				.setRequired(true).addChoices({
-					name: lang.watchTogetherDesc,
-					value: lang.watchTogetherName
+					name: lang.watchTogetherName,
+					value: globalStrs.watchTogetherValue
 				}));
 }
 function guildCommands(lang) {
