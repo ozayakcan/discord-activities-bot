@@ -4,80 +4,51 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const globalStrs = require("../lang/global.json");
+const strings = require("../strings.json");
 
-function activityCommand(lang) {
-	return new SlashCommandBuilder()
-		.setName(lang.eventCommand)
-		.setDescription(lang.eventCommandDesc)
-		.addStringOption(option =>
-			option.setName(lang.type)
-				.setDescription(lang.typeDesc)
-				.setRequired(true).addChoices({
-					name: lang.watchTogetherName,
-					value: globalStrs.watchTogetherValue
-				}));
-}
-function guildCommands(lang) {
-	return [
-		activityCommand(lang)
-	].map(command => command.toJSON());
-}
-const langCommand = new SlashCommandBuilder()
-	.setName(globalStrs.langCommand)
-	.setDescription(globalStrs.langCommandDesc)
+const guildCommands = [
+
+].map(command => command.toJSON());
+const activityCommand = new SlashCommandBuilder()
+	.setName(strings.eventCommand)
+	.setDescription(strings.eventCommandDesc)
 	.addStringOption(option =>
-		option.setName(globalStrs.langCommand)
-			.setDescription(globalStrs.langCommandDesc)
+		option.setName(strings.type)
+			.setDescription(strings.typeDesc)
 			.setRequired(true).addChoices({
-				name: "English",
-				value: "en"
-			}, {
-				name: "Türkçe",
-				value: "tr"
+				name: strings.watchTogetherName,
+				value: strings.watchTogetherValue
 			}));
 const helpCommand = new SlashCommandBuilder()
-	.setName(globalStrs.helpCommand)
-	.setDescription(globalStrs.helpCommandDesc);
+	.setName(strings.helpCommand)
+	.setDescription(strings.helpCommandDesc);
 const refreshCommand = new SlashCommandBuilder()
-	.setName(globalStrs.refreshCommand)
-	.setDescription(globalStrs.refreshCommandDesc);
+	.setName(strings.refreshCommand)
+	.setDescription(strings.refreshCommandDesc);
 const applicationCommands = [
-	langCommand,
+	activityCommand,
 	helpCommand,
 	refreshCommand
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.discordBotToken);
 
-function setApplicationCommands() {
-	rest.put(Routes.applicationCommands(process.env.discordBotClientID), { body: applicationCommands })
-		.then(() => console.log(globalStrs.appCommandsUpdatedSuccess))
+async function setApplicationCommands() {
+	await rest.put(Routes.applicationCommands(process.env.discordBotClientID), { body: applicationCommands })
+		.then(() => console.log(strings.appCommandsUpdatedSuccess))
 		.catch(console.error);
 }
-function guildCommandsRest(guild_id, lang) {
-	return rest.put(Routes.applicationGuildCommands(process.env.discordBotClientID, guild_id), { body: guildCommands(lang) });
+async function guildCommandsRest(guild_id) {
+	return await rest.put(Routes.applicationGuildCommands(process.env.discordBotClientID, guild_id), { body: guildCommands });
 }
-function setGuildCommands(guild_id, lang) {
-	guildCommandsRest(guild_id, lang)
-		.then(() => console.log(globalStrs.guildCommandsUpdatedSuccess))
+async function setGuildCommands(guild_id) {
+	await guildCommandsRest(guild_id)
+		.then(() => console.log(strings.guildCommandsUpdatedSuccess))
 		.catch(console.error);
-}
-function resetGuildCommands(guild_id) {
-	rest.get(Routes.applicationGuildCommands(process.env.discordBotClientID, guild_id))
-		.then(data => {
-			const promises = [];
-			for (const command of data) {
-				const deleteUrl = `${Routes.applicationGuildCommands(process.env.discordBotClientID, guild_id)}/${command.id}`;
-				promises.push(rest.delete(deleteUrl));
-			}
-			return Promise.all(promises);
-		}).catch(console.error);
 }
 
 module.exports = {
 	setApplicationCommands: setApplicationCommands,
 	guildCommandsRest: guildCommandsRest,
 	setGuildCommands: setGuildCommands,
-	resetGuildCommands: resetGuildCommands,
 };
