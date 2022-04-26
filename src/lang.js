@@ -1,11 +1,11 @@
 const fs = require("fs");
 
 function setLanguage(guild_id, lang) {
-    let languages = JSON.parse(fs.readFileSync("./languages.json", "utf8"));
+    let languages = JSON.parse(fs.readFileSync("./src/languages.json", "utf8"));
     languages[guild_id] = {
         language: lang,
     };
-    fs.writeFile("./languages.json", JSON.stringify(languages), (err) => {
+    fs.writeFile("./src/languages.json", JSON.stringify(languages), (err) => {
         if (err) console.error(err)
     });
     let guildData = languages[guild_id];
@@ -13,7 +13,7 @@ function setLanguage(guild_id, lang) {
     return langOpt;
 }
 function getLanguage(guild_id) {
-    let languages = JSON.parse(fs.readFileSync("./languages.json", "utf8"));
+    let languages = JSON.parse(fs.readFileSync("./src/languages.json", "utf8"));
     if (!languages[guild_id]) languages[guild_id] = {
         language: "en",
     };

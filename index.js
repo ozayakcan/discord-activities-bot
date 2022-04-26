@@ -9,8 +9,8 @@ const client = new Client({
     Intents.FLAGS.GUILD_PRESENCES,
     Intents.FLAGS.GUILD_VOICE_STATES]
 });
-const { DiscordTogether } = require('discord-together');
-client.discordTogether = new DiscordTogether(client);
+const DiscordActivity = require('./src/discord-activity.js');
+client.discordActivity = new DiscordActivity(client);
 const globalStrs = require("./src/lang/global.json");
 
 client.on('ready', () => {
@@ -35,7 +35,7 @@ client.on('interactionCreate', async interaction => {
             const string = interaction.options.getString(lang.type);
             switch (string) {
                 case lang.watchTogetherName:
-                    client.discordTogether.createTogetherCode(channel.id, 'youtube').then(async invite => {
+                    client.discordActivity.createActivityCode(channel.id, 'youtube').then(async invite => {
                         return await interaction.reply(lang.youtubeMsg.replace(`{user}`, `${interaction.member}`).replace(`{inviteCode}`, `${invite.code}`));
                     });
                     break;

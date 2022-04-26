@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "Activities for discord.",
   "main": "index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "start": "node .",
-    "deploy-commands": "node src/commands/deploy-commands.js",
+    "deploy-commands": "node commands/deploy-commands.js",
+    "format": "prettier --write \"**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/ozayakcan/discord-activities-bot#readme",
   "dependencies": {
+    "node-fetch": "^2.6.1",
     "@discordjs/builders": "^0.13.0",
     "@discordjs/rest": "^0.4.1",
     "discord-api-types": "^0.32.0",
@@ -31,5 +34,10 @@
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.1",
+    "check-dts": "^0.5.2",
+    "prettier": "^2.3.2"
   }
 }
