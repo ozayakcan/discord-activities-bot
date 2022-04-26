@@ -6,7 +6,7 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "start": "node .",
-    "deploy-commands": "node commands/deploy-commands.js",
+    "deploy-commands": "node src/commands/deploy-commands.js",
     "format": "prettier --write \"**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
