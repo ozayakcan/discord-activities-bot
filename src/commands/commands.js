@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const globalStrs = require("./lang/global.json");
+const globalStrs = require("../lang/global.json");
 
 function activityCommand(lang) {
 	return new SlashCommandBuilder()

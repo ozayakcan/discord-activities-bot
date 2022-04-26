@@ -1,6 +1,6 @@
 require('dotenv').config();
-const langJs = require("./lang");
-const commandsJs = require("./commands");
+const langJs = require("./src/lang");
+const commandsJs = require("./src/commands/commands");
 const { Client, Intents } = require('discord.js');
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS,
@@ -11,7 +11,7 @@ const client = new Client({
 });
 const { DiscordTogether } = require('discord-together');
 client.discordTogether = new DiscordTogether(client);
-const globalStrs = require("./lang/global.json");
+const globalStrs = require("./src/lang/global.json");
 
 client.on('ready', () => {
     console.log(globalStrs.readyMsg.replace(`{botTag}`, `${client.user.tag}`));
@@ -59,5 +59,5 @@ client.on('interactionCreate', async interaction => {
         await interaction.reply(lang.helpResp);
     }
 });
-require('./server')();
+require('./src/server')();
 client.login(process.env.discordBotToken);

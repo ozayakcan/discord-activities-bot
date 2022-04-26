@@ -4,8 +4,8 @@
   "description": "Activities for discord.",
   "main": "index.js",
   "scripts": {
-    "main": "node .",
-    "deploy-commands": "node deploy-commands.js",
+    "start": "node .",
+    "deploy-commands": "node src/commands/deploy-commands.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
