@@ -2,8 +2,8 @@
   "name": "discord-activities-bot",
   "version": "0.0.1",
   "description": "Activities for discord.",
-  "main": "index.js",
-  "types": "./types/index.d.ts",
+  "main": "./src/bot.js",
+  "types": "./types/bot.d.ts",
   "scripts": {
     "start": "node .",
     "deploy-commands": "node src/commands/deploy-commands.js",

@@ -1,6 +1,6 @@
 require('dotenv').config();
-const commandsJs = require("./src/commands/commands");
-const strings = require("./src/strings.json");
+const commandsJs = require("./commands/commands");
+const strings = require("./strings.json");
 const { Client, Intents } = require('discord.js');
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS,
@@ -9,7 +9,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_PRESENCES,
     Intents.FLAGS.GUILD_VOICE_STATES]
 });
-const DiscordActivity = require('./src/discord-activity.js');
+const DiscordActivity = require('./discord-activity.js');
 client.discordActivity = new DiscordActivity(client);
 
 client.on('ready', () => {
@@ -66,5 +66,5 @@ client.on('interactionCreate', async interaction => {
 
     }
 });
-require('./src/server')();
+require('./server')();
 client.login(process.env.discordBotToken);
