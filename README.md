@@ -38,7 +38,8 @@ src/strings.json example
     "chessMsg": "{user} started a chess event. [Click to join]({inviteCode})",
     "sketchheadsName": "Sketch Heads (Game)",
     "sketchheadsValue": "sketchheads",
-    "sketchheadsMsg": "{user} started a sketch heads event. [Click to join]({inviteCode})"
+    "sketchheadsMsg": "{user} started a sketch heads event. [Click to join]({inviteCode})",
+    "command_not_found": "Command not found."
 }
 ```
 

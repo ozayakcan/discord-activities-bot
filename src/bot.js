@@ -25,7 +25,8 @@ client.on('interactionCreate', async interaction => {
     let user = await interaction.member.fetch();
     let channel = await user.voice.channel;
     let guild = await interaction.guild;
-    if (interaction.commandName === strings.eventCommand) {
+    switch(interaction.commandName){
+      case strings.eventCommand:
         if (!channel) {
             await interaction.reply(strings.youMustBeInVoiceChannel);
         } else {
@@ -52,9 +53,11 @@ client.on('interactionCreate', async interaction => {
             }
 
         }
-    } else if (interaction.commandName === strings.helpCommand) {
+        break;
+      case strings.helpCommand:
         await interaction.reply(strings.helpResp);
-    } else if (interaction.commandName === strings.refreshCommand) {
+        break;
+      case strings.refreshCommand:
         await commandsJs.guildCommandsRest(guild.id).then(async () => {
             await interaction.reply(strings.refreshSuccess);
         })
@@ -63,7 +66,9 @@ client.on('interactionCreate', async interaction => {
                     await interaction.reply(strings.refreshSuccess);
                 }
             });
-
+        break;
+      default:
+        interaction.reply(strings.refreshSuccess);
     }
 });
 require('./server')();
